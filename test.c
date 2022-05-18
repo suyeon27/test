@@ -115,4 +115,29 @@ int main() {
 	}
 }
 
+//1. 18살인 철수와 14살인 민아, 25살인 진혁이 반에 있습니다. 이들의 이름과 나이를 저장할 수 있는 구조체를 선언하고, 구조체의 모든 원소를 출력해주세요.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	struct class {
+		char name[10];
+		int age;
+	};
+		struct class a;
+		strcpy(a.name, "철수");
+		a.age = 18;
+	
+		struct class b;
+		strcpy(b.name, "민아");
+		b.age = 14;
+	
+		struct class c;
+		strcpy(c.name, "진혁");
+		c.age = 25;
+		printf("%s %s %s %d %d %d", a.name, b.name, c.name, a.age, b.age, c.age);
+}
+
+//2. 사용자로부터 0이 입력되기전까지 계속 정수의 입력을 받고, 입력받은 양수의 총합과 / 입력받은 음수의 총합을 각각 출력해주세요.
+
+
 
