@@ -67,7 +67,44 @@ int main() {
 }
 
 //5월 19일(목)
+//1. 자신의 이름으로 배열을 초기화 한 뒤, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char name[] = { "iris" };
+	printf("%s", name);
+}
 
+//2. 사용자로부터 입력받은 문자열을 배열에 입력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char a[10];
+	scanf("%s", &a);
+}
+
+//3. 사용자로부터 입력받은 문자열을 배열에 입력하고, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char a[10];
+	scanf("%s", &a);
+	printf("%s", a);
+}
+
+//4. 사용자로부터 입력받은 숫자가 1이면 "yes"를 3이면 "no"를 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int number;
+	scanf("%d", &number);
+	if (number == 1) {
+		printf("yes");
+	}
+	else if (number == 3) {
+		printf("no");
+	}
+}
 
 //5. 반복문을 활용하여 "hacker"를 5번 출력하시오.
 #include <stdio.h>
