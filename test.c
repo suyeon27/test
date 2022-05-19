@@ -140,4 +140,16 @@ int main() {
 //2. 사용자로부터 0이 입력되기전까지 계속 정수의 입력을 받고, 입력받은 양수의 총합과 / 입력받은 음수의 총합을 각각 출력해주세요.
 
 
+//3. 사용자로부터 입력받은 문자열의 원소(arr[0], arr[1]...)를 각각 xor 3을 모두 하여 암호화한뒤 이를 cipher라는 이름의 배열에 저장하고, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char arr[] = {""};
+	char cipher[] = {""};
+	scanf("%s %s", &arr[0], &arr[1]);
+	cipher = arr[0] ^ 3, arr[1] ^ 3;
+	printf("%s", cipher);
+}
+
+
 
