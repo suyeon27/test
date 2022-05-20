@@ -71,7 +71,7 @@ int main() {
 #pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	char name[] = { "iris" };
+	char name[] = "iris";
 	printf("%s", name);
 }
 
