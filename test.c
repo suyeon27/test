@@ -118,6 +118,7 @@ int main() {
 //1. 18살인 철수와 14살인 민아, 25살인 진혁이 반에 있습니다. 이들의 이름과 나이를 저장할 수 있는 구조체를 선언하고, 구조체의 모든 원소를 출력해주세요.
 #pragma warning(disable: 4996)
 #include <stdio.h>
+#include <string.h>
 int main() {
 	struct class {
 		char name[10];
