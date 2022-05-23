@@ -11,6 +11,24 @@ int main() {
 }
 
 //2. 정수를 입력받고, 정수가 1이면 "a"를, 정수가 2이면 "b"를, 정수가 3이면 "c"를 출력하시오. (입력받은 정수가 1,2,3이 아닐시에는 "F"를 출력하시오.)
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int i;
+	scanf("%d", &i);
+	if (i == 1) {
+		printf("a");
+	}
+	else if (i == 2) {
+		printf("b");
+	}
+	else if (i == 3) {
+		printf("c");
+	}
+	else if(i) {
+		printf("F");
+	}
+}
 
 //3. 1~100까지를 출력하시오.
 #pragma warning(disable: 4996)
@@ -154,7 +172,15 @@ int main() {
 
 //5월 23일(월)
 //1. 반복문을 활용하여 10글자 입력받고 출력하기.
-
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char i;
+	for (i = 0; i < 10; i++) {
+		scanf("%c", &i);
+	}
+	printf("%c", i);
+}
 
 //2. 반복문을 활용하여 구구단 1~9단까지를 출력하시오.
 #pragma warning(disable: 4996)
