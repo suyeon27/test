@@ -242,4 +242,12 @@ int main() {
 }
 
 //3. 구조체를 활용하여 사용자로부터 두 점의 좌표를 입력받고, 두 점 사이의 거리를 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	struct d {
+		int x;
+		int y;
+	};
+}
 
