@@ -152,5 +152,33 @@ int main() {
 	printf("%s", cipher);
 }
 
+//5월 23일(월)
+//1. 반복문을 활용하여 10글자 입력받고 출력하기.
 
+
+//2. 반복문을 활용하여 구구단 1~9단까지를 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	for (int a = 1; a < 10; a++) {
+		for (int b = 1; b < 10; b++) {
+			printf("%d*%d=%d\n", a, b, a * b);
+		}
+	}
+}
+
+//1. 사용자의 입력값이 0이 될때까지 계속 입력받고, 짝수끼리의 합과 홀수끼리의 합을 각각 출력하시오.
+
+//2. 사용자가 입력한 정수 값이 소수인지 판별하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int i;
+	scanf("%d", &i);
+	if (i % 2) {
+		printf("소수");
+	}
+}
+
+//3. 구조체를 활용하여 사용자로부터 두 점의 좌표를 입력받고, 두 점 사이의 거리를 출력하시오.
 
