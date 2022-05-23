@@ -222,6 +222,12 @@ int main() {
 	do {
 		scanf("%d", &i);
 	} while (i != 0);
+	if (i < 0) {
+		printf("%d+%d", i, i);
+	}
+	else if (i > 0) {
+		printf("%d+%d", i, i);
+	}
 }
 
 //2. 사용자가 입력한 정수 값이 소수인지 판별하시오.
