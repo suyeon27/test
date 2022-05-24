@@ -196,11 +196,13 @@ int main() {
 #pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	char i;
-	for (i = 0; i < 10; i++) {
-		scanf("%c", &i);
+	char str[10];
+	for (int i = 0; i < 10; i++) {
+		scanf("%c", &str[i]);
+		for (int i = 0; i < 10; i++) {
+			printf("%c", str[i]);
+		}
 	}
-	printf("%c", i);
 }
 
 //2. 반복문을 활용하여 구구단 1~9단까지를 출력하시오.
