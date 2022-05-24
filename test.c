@@ -227,15 +227,16 @@ int main() {
 #pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	int i;
-	do {
+	int i = 1;
+	int JJ = 0;
+	int HH = 0;
+	while (i != 0) {
 		scanf("%d", &i);
-	} while (i != 0);
-	if (i < 0) {
-		printf("%d+%d", i, i);
-	}
-	else if (i > 0) {
-		printf("%d+%d", i, i);
+		if (i % 2)
+			HH += i;
+		else if (i) 
+			JJ += i;
+		printf("홀수합 : %d\n 짝수합 : %d", HH, JJ);
 	}
 }
 
