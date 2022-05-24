@@ -160,10 +160,17 @@ int main() {
 #pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	int i;
-	do {
+	int i = 1;
+	int plus = 0;
+	int minus = 0;
+	while (i != 0) {
 		scanf("%d", &i);
-	} while (i != 0);
+		if (i < 0)
+			minus += i;
+		else if (i > 0) 
+			plus += i;
+		printf("입력받은 음수의 총합 : %d\n 입력받은 양수의  : %d", minus, plus);
+	}
 }
 
 //3. 사용자로부터 입력받은 문자열의 원소(arr[0], arr[1]...)를 각각 xor 3을 모두 하여 암호화한뒤 이를 cipher라는 이름의 배열에 저장하고, 출력하시오.
