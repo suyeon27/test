@@ -23,3 +23,22 @@ int main() {
 }
 
 //3. 0이 입력될 때 까지 사용자로부터 정수를 입력받고 입력 값중, 홀수이며 10보다 작은 수끼리의 합과 / 짝수이며 10보다 큰 수끼리의 합을 각각 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int i = 1;
+	int JJ = 0;
+	int HH = 0;
+	while (i != 0) {
+		scanf("%d", &i);
+		if (i % 2) {
+			if (i < 10)
+				HH += i;
+		}
+		else if (i) {
+			 if (i > 10)
+				JJ += i;
+		}
+	}
+	printf("홀수합 : %d\n 짝수합 : %d", HH, JJ);
+}
