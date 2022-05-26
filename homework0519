@@ -1,0 +1,113 @@
+//5월 19일(목)
+//1. 자신의 이름으로 배열을 초기화 한 뒤, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char name[] = "iris";
+	printf("%s", name);
+}
+
+//2. 사용자로부터 입력받은 문자열을 배열에 입력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char a[10];
+	scanf("%s", &a);
+}
+
+//3. 사용자로부터 입력받은 문자열을 배열에 입력하고, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char a[10];
+	scanf("%s", &a);
+	printf("%s", a);
+}
+
+//4. 사용자로부터 입력받은 숫자가 1이면 "yes"를 3이면 "no"를 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int number;
+	scanf("%d", &number);
+	if (number == 1) {
+		printf("yes");
+	}
+	else if (number == 3) {
+		printf("no");
+	}
+}
+
+//5. 반복문을 활용하여 "hacker"를 5번 출력하시오.
+#include <stdio.h>
+int main() {
+	int i;
+		for (i = 0; i < 5; i++) {
+			printf("hacker\n");
+	}
+}
+
+//1. 18살인 철수와 14살인 민아, 25살인 진혁이 반에 있습니다. 이들의 이름과 나이를 저장할 수 있는 구조체를 선언하고, 구조체의 모든 원소를 출력해주세요.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+#include <string.h>
+int main() {
+	struct class {
+		char name[10];
+		int age;
+	};
+		struct class a;
+		strcpy(a.name, "철수");
+		a.age = 18;
+	
+		struct class b;
+		strcpy(b.name, "민아");
+		b.age = 14;
+	
+		struct class c;
+		strcpy(c.name, "진혁");
+		c.age = 25;
+		printf("%s %s %s %d %d %d", a.name, b.name, c.name, a.age, b.age, c.age);
+}
+
+//2. 사용자로부터 0이 입력되기전까지 계속 정수의 입력을 받고, 입력받은 양수의 총합과 / 입력받은 음수의 총합을 각각 출력해주세요.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	int i = 1;
+	int plus = 0;
+	int minus = 0;
+	while (i != 0) {
+		scanf("%d", &i);
+		if (i < 0)
+			minus += i;
+		else if (i > 0) 
+			plus += i;
+		printf("입력받은 음수의 총합 : %d\n 입력받은 양수의  : %d", minus, plus);
+	}
+}
+
+//3. 사용자로부터 입력받은 문자열의 원소(arr[0], arr[1]...)를 각각 xor 3을 모두 하여 암호화한뒤 이를 cipher라는 이름의 배열에 저장하고, 출력하시오.
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char arr[] = {""};
+	char cipher[] = {""};
+	scanf("%s %s", &arr[0], &arr[1]);
+	cipher = arr[0] ^ 3, arr[1] ^ 3;
+	printf("%s", cipher);
+}
+//멘토님 답
+#pragma warning(disable: 4996)
+#include <stdio.h>
+int main() {
+	char arr1[30];
+	char arr2[30];
+	for (int i = 0; i < 30; i++) {
+		scanf("c", &arr1[i]);
+	}
+	for (int i = 0; i < 30; i++) {
+		arr2[i] = arr1[i] ^ 3;
+	}
+	printf("%s", arr2);
+}
