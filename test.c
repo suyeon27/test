@@ -1,4 +1,4 @@
-//5월 16일(월)
+//2022년 5월 16일 월요일
 //1. 이름과 나이를 변수에 입력받고 출력하시오.
 #pragma warning(disable: 4996)
 #include <stdio.h>
