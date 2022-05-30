@@ -7,9 +7,11 @@ int main() {
 	char big[30];
 	int i = 0;
 
-	get(small);
+	gets(small);
 	big[i] = small[i] - 32;
-	printf("%c", big[i]);
+	for (i = 0; i < 30; i++) {
+		printf("%c", big[i]);
+	}
 }
 
 //2. 반복문을 중첩하여 사용하여, 아래와 같이 출력되도록 만드시오.
