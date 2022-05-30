@@ -3,7 +3,7 @@
 #pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	char name[] = "iris";
+	char name[] = "suyeon27";
 	printf("%s", name);
 }
 
