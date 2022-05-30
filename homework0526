@@ -1,12 +1,15 @@
 //2022년 5월 26일 목요일
 //1. 사용자의 입력(영어 소문자의 문자열)을 30바이트 길이의 배열에 입력받고, 모두 영어 대문자로 변환한뒤에 출력하시오. 힌트: 아스키 코드 표
+#pragma warning(disable: 4996)
 #include <stdio.h>
 int main() {
-	char a[30];
-	char A[30];
+	char small[30];
+	char big[30];
+	int i = 0;
 
-	scanf("%c", &a);
-	printf("%c", A);
+	get(small);
+	big[i] = small[i] - 32;
+	printf("%c", big[i]);
 }
 
 //2. 반복문을 중첩하여 사용하여, 아래와 같이 출력되도록 만드시오.
