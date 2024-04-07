@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <pcap.h>
+#include <netinet/ether.h>
+#include <netinet/ip.h>
+#include <netinet/tcp.h>
+#include <arpa/inet.h>
+
+void packet_handler(unsigned char *user_data, const struct pcap_pkthdr *pkthdr, const unsigned char *packet) {
+    // Ethernet 헤더 파싱
+    //캡처된 패킷에서 이더넷 헤더의 출발지와 목적지 MAC 주소를 추출하고, 해당 주소를 문자열로 변환하여 출력
+    struct ether_header *eth_header = (struct ether_header *)packet; //패킷에서 이더넷 헤더를 가리키는 포인터를 선언
+    printf("src MAC: %s\n", ether_ntoa((struct ether_addr *)eth_header->ether_shost)); //이더넷 헤더 구조체에서 출발지 MAC 주소를 가리키는 포인터
+    printf("dst MAC: %s\n", ether_ntoa((struct ether_addr *)eth_header->ether_dhost)); //이더넷 헤더 구조체에서 목적지 MAC 주소를 가리키는 포인터
+
+    // IP 헤더 파싱
+    //캡처된 패킷에서 IP 헤더의 출발지와 목적지 IP 주소를 추출하고, 해당 주소를 문자열로 변환하여 출력
+    struct ip *ip_header = (struct ip *)(packet + sizeof(struct ether_header)); //패킷에서 IP 헤더를 가리키는 포인터를 선언
+    printf("src IP: %s\n", inet_ntoa(ip_header->ip_src)); //IP 헤더에서 출발지 IP 주소를 가져와서 출력
+    printf("dst IP: %s\n", inet_ntoa(ip_header->ip_dst)); //IP 헤더에서 목적지 IP 주소를 가져와서 출력
+
+    // TCP 헤더 파싱
+    //캡처된 패킷에서 TCP 헤더의 출발지와 목적지 포트 번호를 추출하고, 해당 번호를 출력
+    struct tcphdr *tcp_header = (struct tcphdr *)(packet + sizeof(struct ether_header) + sizeof(struct ip)); //패킷에서 TCP 헤더를 가리키는 포인터를 선언
+    printf("src Port: %d\n", ntohs(tcp_header->th_sport)); //TCP 헤더에서 출발지 포트 번호를 가져와서 출력
+    printf("dst Port: %d\n", ntohs(tcp_header->th_dport)); //TCP 헤더에서 목적지 포트 번호를 가져와서 출력
+
+    // 메시지 출력
+    //캡처된 패킷에서 TCP 헤더 이후의 데이터를 추출하고, 해당 데이터를 16진수로 출력
+    //이더넷 헤더와 IP 헤더의 크기를 더하고, TCP 헤더의 오프셋을 곱한 값을 더한다.
+    //TCP 헤더의 오프셋은 헤더의 길이를 4로 나눈 값을 사용
+    int data_offset = sizeof(struct ether_header) + sizeof(struct ip) + tcp_header->th_off * 4;
+    int data_length = pkthdr->len - data_offset; //데이터의 길이를 계산
+    if (data_length > 0) {
+        printf("Message: ");
+        for (int i = 0; i < data_length && i < 20; i++) { //데이터의 시작 위치부터 20바이트까지 출력
+            printf("%02X ", packet[data_offset + i]); //각 바이트를 16진수로 출력
+        }
+        printf("\n");
+    }
+}
+
+int main() {
+    char *dev; 
+    char errbuf[PCAP_ERRBUF_SIZE]; // 오류 버퍼
+    pcap_t *handle; // PCAP 핸들러
+
+    // 네트워크 디바이스 찾기
+    pcap_if_t *alldevs, *dev_list;
+    
+    if (pcap_findalldevs(&alldevs, errbuf) == -1) {
+        printf("네트워크 디바이스를 찾을 수 없습니다: %s\n", errbuf);
+        return 1;
+    }
+
+    // 첫 번째 네트워크 디바이스 선택
+    dev = alldevs->name;
+
+    // 네트워크 디바이스 열기
+    handle = pcap_open_live(dev, BUFSIZ, 1, 1000, errbuf);
+    if (handle == NULL) {
+        printf("네트워크 디바이스를 열 수 없습니다: %s\n", errbuf);
+        return 1;
+    }
+
+    // 패킷 스니핑 루프 시작
+    pcap_loop(handle, 0, packet_handler, NULL);
+
+    //pcap 핸들 닫기 
+    pcap_close(handle);
+    return 0;
+}
